@@ -36,7 +36,7 @@ I'm a student developer at Penn State University studying Computational Data Sci
 
 ## Selected Projects
 
-**Personal Finance Tracker**  
+**[Finance Tracker App](https://github.com/jashkaransingh/FinanceApp)**  
 - Built a full-stack iOS app with UIKit and Flask  
 - Integrated Plaid API to auto-import bank transactions and generate daily, weekly, and monthly summaries  
 - Features include spending alerts, notification scheduling, and lock/home screen widgets  
@@ -44,6 +44,10 @@ I'm a student developer at Penn State University studying Computational Data Sci
 **Collaborative Music Sharing Tool**  
 - Created an iOS app using the Spotify API  
 - Uses OAuth 2.0 to compare friend playlists and generate shared playlists from overlapping tracks  
+
+**[Tic Tac Toe Game](https://github.com/jashkaransingh/TicTacToe)**  
+- A simple, cleanly designed Swift iOS app built with UIKit  
+- Two-player mode with responsive UI and game logic handled in a structured, MVC pattern  
 
 **Task Manager**  
 - Designed a SwiftUI-based productivity app with Firebase Firestore as the backend  
