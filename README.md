@@ -11,12 +11,6 @@ I enjoy solving complex problems end-to-end — from backend APIs to polished, i
 
 ---
 
-## 🚀 What I'm Up To
-**@ Navy Federal Credit Union — Data Engineering & Cloud Intern**  
-└── Documenting technical requirements and internal workflows  
-└── Organizing repositories and supporting Azure DevOps cloud-migration tasks  
-└── Enhancing data documentation and governance practices  
-
 **Previously @ Rootchat — iOS Developer Intern**  
 └── Developed and deployed `dadonthetree.com` in 72 hours for a live marketing campaign (100+ visitors in first 4 hours)  
 └── Redesigned onboarding/settings with a new 14-page Swift/UIKit interface and haptics  
@@ -72,13 +66,6 @@ Full-stack property subleasing platform for secure, streamlined transactions.
 - OCR lease verification via Google Cloud Vision  
 - Real-time chat using Supabase subscriptions  
 **Tech Stack:** React.js · TypeScript · Supabase · Stripe API · Google Cloud Vision  
-
----
-
-### ❌ Tic Tac Toe (UIKit)  
-Minimal two-player iOS game with responsive UI and clean MVC structure.  
-**Tech Stack:** Swift (UIKit)  
-**Links:** 🔗 [GitHub](https://github.com/jashkaransingh/TicTacToe) *(private)*  
 
 ---
 
