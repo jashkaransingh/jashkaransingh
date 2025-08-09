@@ -67,18 +67,12 @@ Full-stack property subleasing platform for secure, streamlined transactions.
 - Real-time chat using Supabase subscriptions  
 **Tech Stack:** React.js · TypeScript · Supabase · Stripe API · Google Cloud Vision  
 
----
-
-## 🏆 Leadership & Involvement
-**Sikh Student Association — Social Media Manager & Event Planner** *(Aug 2024 – Present)*  
-- Organized campus-wide events including Langar, Turban Day, and cultural socials  
-- Managed educational social media content on Sikhism and Punjabi culture  
 
 ---
 
 ## 📫 Let's Connect
 📧 **Email:** [jassing73@gmail.com](mailto:jassing73@gmail.com)  
 💼 **GitHub:** [github.com/jashkaransingh](https://github.com/jashkaransingh)  
-📍 **Location:** State College, PA / New York City (Summer)
+📍 **Location:** State College, PA
 
 ---
