@@ -1,104 +1,124 @@
 # hey, I'm Jashkaran 👋
 
-CS and Math at Penn State. I build things end to end and I can walk you through all of it. The schema, the middleware, the deployment, the part that broke at 2am.
+CS + Math @ Penn State. I build full stack apps from the iOS frontend all the way down to the AWS config. Real production stuff, not localhost demos.
+
+Currently shipping a finance app that pulls real bank data through Plaid and runs an AI budget assistant on top of your actual spending history. Also got into retrieval systems and now I can't stop tuning vector stores.
 
 ---
 
-## things I've actually built
+## what I actually build
 
-**[Maya](https://github.com/jashkaransingh/maya-finance-api)** — personal finance app backed by real bank data
+### 🏦 [Maya](https://github.com/jashkaransingh/maya-finance-api)
+personal finance iOS app pulling real bank data, deployed end to end
 
-├─ Plaid API pulling and syncing live transactions across accounts  
-├─ Flask REST API with JWT auth on every protected route  
-├─ PostgreSQL schema built for fast spending queries by category and date  
-├─ Gemini-powered budget assistant that reasons over your actual transaction history  
-└─ deployed on AWS EC2 with gunicorn and nginx
+```
+├─ Swift UIKit frontend with Lock Screen and Home Screen widgets for instant spending checks
+├─ Flask backend on AWS EC2 behind gunicorn and nginx
+├─ PostgreSQL schema for transactions, budgets, and user profiles
+├─ Plaid API for live bank connections, real transactions from real accounts
+├─ Firebase identity with JWT on every backend route
+├─ Gemini API running an AI budget assistant that reads your actual spending history
+└─ the hard part wasn't auth or the API design. it was that the same Starbucks transaction comes back as Starbucks, SBUX, Starbucks #4421, STARBUCKS COFFEE, and a dozen other variants depending on which bank you connect. wrote a fuzzy matching layer that collapses them all into one merchant. also Plaid's sandbox lies about transaction shapes so production broke things sandbox never did
+```
 
-the hard part was transaction categorization. one merchant shows up under 14 different names depending on which bank processes it. wrote a fuzzy matching layer in the categorizer to handle it. the Plaid sandbox also lies to you about how production behaves so there were edge cases I only found after pointing it at real accounts.
+### 🔍 [RAG Document Q&A](https://github.com/jashkaransingh/rag-document-qa)
+multi-turn retrieval system you can break and watch heal
 
----
+```
+├─ LangChain for chunking and pipeline glue
+├─ sentence-transformers for embeddings
+├─ FAISS vector store using maximum marginal relevance, not naive top-k
+├─ multi-turn memory so follow-up questions actually know what you asked before
+├─ prompt injection guardrails after I broke my own system in an afternoon
+└─ the hard part was retrieval quality. top-k kept returning the same chunk three times because everything in a doc clusters semantically close. switching to MMR forced diversity and answer quality jumped immediately. lesson that stuck with me, the model is rarely the bottleneck, the retrieval pipeline is
+```
 
-**[RAG Document Q&A](https://github.com/jashkaransingh/rag-document-qa)** — not a wrapper, an actual retrieval system
+### 🏠 [HomeHarmony](https://github.com/jashkaransingh/homeharmony)
+full stack subleasing platform with real money flowing through it
 
-├─ documents chunk via LangChain and get embedded with sentence-transformers  
-├─ stored in FAISS with max marginal relevance retrieval for diversity  
-├─ multi-turn memory layer so follow-up questions have context  
-└─ prompt injection guardrails built after testing showed you could manipulate answers with a crafted document
+```
+├─ React + TypeScript frontend
+├─ Supabase Postgres with postgres_changes subscriptions for real-time chat between buyers and sellers
+├─ Stripe Connect so landlords get payouts straight to actual bank accounts
+├─ Google Cloud Vision OCR verifying lease documents before listings go live
+└─ the hard part was Stripe Connect onboarding. partial failures, webhook retries, idempotency keys, what happens when a landlord starts the flow and bails halfway through. every edge case felt like discovering something Stripe forgot to document. I read payment integrations differently now
+```
 
-the hard part was naive top-k retrieval kept surfacing the same chunk repeatedly. switched to MMR and answer quality improved significantly. the guardrails came after I spent an afternoon trying to break my own system and succeeded faster than I expected.
+### ✍️ [Handwriting Font Generator](https://github.com/jashkaransingh/handwriting-font-gen)
+CNN that renders any text in my own handwriting
 
----
-
-**[HomeHarmony](https://github.com/jashkaransingh/homeharmony)** — subleasing platform with real payment flows
-
-├─ real-time buyer-seller chat via Supabase postgres_changes subscriptions  
-├─ Stripe Connect so landlords get paid directly to their bank accounts  
-├─ Google Cloud Vision OCR verifying lease documents before listings go live  
-└─ React TypeScript frontend, filter by city, price, bedrooms, availability
-
-the hard part was Stripe Connect onboarding. partial failures, webhook retries, idempotency across edge cases nobody warns you about. spent two full days just on the payment flow before it felt solid.
-
----
-
-**[system-monitor](https://github.com/jashkaransingh/system-monitor)** — C++ daemon running on real hardware
-
-├─ polls CPU, memory, and disk every 10 seconds  
-├─ inotify filesystem watcher catching file creates, deletes, modifications  
-├─ running on 5 embedded devices via systemd since deployment  
-└─ caught 3 SD card failures before data loss happened
-
-the hard part was CPU overhead. first version ate 3 percent just from monitoring. rewrote the polling logic and got it under 0.1. the whole point of a monitor is that it doesn't slow down what it's watching.
-
----
-
-## before all this
-
-**iOS Intern at Rootchat, NYC** — rebuilt their entire onboarding from scratch. 14 screens in Swift UIKit, haptic feedback on every interaction, APNs notification system with retry logic on the backend. shipped a marketing site in 72 hours that pulled 100 unique visitors in the first 4 hours. real production work from day one.
-
-**Math Tutor at Penn State** — 500 students over 18 months. Calculus I and II. one on ones, group sessions of 100 people before exams. turns out being able to explain why something works matters more than being able to do it yourself.
+```
+├─ Python + PyTorch + OpenCV
+├─ custom data pipeline with rotations, morphological ops, and synthetic noise augmentation
+├─ Matplotlib labeling GUI because relabeling 50k images by hand was destroying me
+└─ training prep used to take 3 hours per run because OpenCV preprocessing was running serially. parallelized the pipeline and added smarter augmentation. dropped prep time to 15 minutes
+```
 
 ---
 
-## tech
+## what I've actually done with this
 
-**daily**  
+**iOS Developer Intern @ Rootchat** (NYC, summer 2024)
+rebuilt the entire user onboarding flow, 14 screens in Swift UIKit. wrote the APNs push notification system with retry logic on the Node.js backend. shipped a marketing site in 72 hours that pulled 100 unique visitors in the first 4 hours. sat in on investor meetings the founder pulled me into without warning.
+
+**Math Tutor @ Penn State** (Aug 2024 → now)
+500+ students through Calc I and II. group exam reviews for 50+ at a time. teaching forces you to know what you actually understand vs what you think you do.
+
+---
+
+## tech I actually use
+
+**daily**
+
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Swift](https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-
-**backend and infra**  
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+
+**when I need to**
+
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![NGINX](https://img.shields.io/badge/nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
 
-**ML and AI**  
+**experimenting with**
+
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge&logo=chainlink&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-0467DF?style=for-the-badge&logo=meta&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-27338e?style=for-the-badge&logo=OpenCV&logoColor=white)
 
 ---
 
-## a few things
+## things you should probably know
 
-- tutored 500 students through calculus and never once said it was straightforward
-- I write all my own SQL and I genuinely enjoy it
-- grinding hard leetcode problems because I want to pass any interview I walk into
-
----
-
-<div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jashkaransingh&show_icons=true&theme=dark&hide_border=true&count_private=true)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=jashkaransingh&layout=compact&theme=dark&hide_border=true)
-
-</div>
+- think the hardest part of RAG is chunking, not the model
+- ship code that talks to real bank accounts through Plaid
+- once spent more time debugging Stripe Connect webhooks than writing the app they live in
+- read API docs for fun and file issues against them for sport
+- 500+ Penn State students taught calc, somehow it made me better at code reviews
+- prefer 4 deep projects over 20 shallow ones
 
 ---
 
-<div align="center">
-<sub>State College PA · open to SWE internships · May 2027</sub>
-</div>
+## stats nobody asked for
+
+![Jashkaran's GitHub stats](https://github-readme-stats.vercel.app/api?username=jashkaransingh&show_icons=true&theme=tokyonight&hide_border=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=jashkaransingh&layout=compact&theme=tokyonight&hide_border=true)
+
+---
+
+## let's build something
+
+if you're working on iOS, backend, payment integrations, retrieval pipelines, or anything full stack that ships to actual users, reach out. always down to talk infra, Stripe edge cases, or why your Plaid sandbox is lying to you.
+
+📫 [linkedin](https://linkedin.com/in/YOUR-HANDLE-HERE)
