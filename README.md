@@ -1,8 +1,6 @@
 # hey, I'm Jashkaran 👋
 
-CS and Math at Penn State. I came from Punjab to the US in 2022 knowing nobody. On my first trip to NYC I tried to meet a vlogger I'd been watching since India. He didn't reply. I found his editor by digging through his following list because the editor had under 2k followers. The editor was working at a startup. I told him I built iOS apps. The next day I met the founder. That summer I was interning in NYC. That's pretty much how I operate.
-
-I build things end to end and I can walk you through all of it. The schema, the middleware, the deployment, the part that broke at 2am.
+CS and Math at Penn State. I build things end to end and I can walk you through all of it. The schema, the middleware, the deployment, the part that broke at 2am.
 
 ---
 
@@ -55,7 +53,7 @@ the hard part was CPU overhead. first version ate 3 percent just from monitoring
 
 ## before all this
 
-**iOS Intern at Rootchat, NYC** — rebuilt their entire onboarding from scratch. 14 screens in Swift UIKit, haptic feedback on every interaction, APNs notification system with retry logic on the backend. shipped a marketing site in 72 hours that pulled 100 unique visitors in the first 4 hours. they gave me real production work from day one.
+**iOS Intern at Rootchat, NYC** — rebuilt their entire onboarding from scratch. 14 screens in Swift UIKit, haptic feedback on every interaction, APNs notification system with retry logic on the backend. shipped a marketing site in 72 hours that pulled 100 unique visitors in the first 4 hours. real production work from day one.
 
 **Math Tutor at Penn State** — 500 students over 18 months. Calculus I and II. one on ones, group sessions of 100 people before exams. turns out being able to explain why something works matters more than being able to do it yourself.
 
@@ -69,7 +67,6 @@ the hard part was CPU overhead. first version ate 3 percent just from monitoring
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
 **backend and infra**  
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
@@ -88,7 +85,6 @@ the hard part was CPU overhead. first version ate 3 percent just from monitoring
 ## a few things
 
 - tutored 500 students through calculus and never once said it was straightforward
-- the NYC internship story above is real and I will tell it in full if you ask
 - I write all my own SQL and I genuinely enjoy it
 - grinding hard leetcode problems because I want to pass any interview I walk into
 
