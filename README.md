@@ -1,73 +1,96 @@
-<div align="center">
+# hey, I'm Jashkaran 👋
 
-# Jashkaran Singh
+CS and Math at Penn State. I came from Punjab to the US in 2022 knowing nobody. On my first trip to NYC I tried to meet a vlogger I'd been watching since India. He didn't reply. I found his editor by digging through his following list because the editor had under 2k followers. The editor was working at a startup. I told him I built iOS apps. The next day I met the founder. That summer I was interning in NYC. That's pretty much how I operate.
 
-**sophomore. builder. penn state → wherever the problem is.**
-
-[![GitHub](https://img.shields.io/badge/jashkaransingh-181717?style=flat&logo=github&logoColor=white)](https://github.com/jashkaransingh)
-
-</div>
+I build things end to end and I can walk you through all of it. The schema, the middleware, the deployment, the part that broke at 2am.
 
 ---
 
-I'm 19 and I've already shipped a production iOS notification system at a NYC startup, built a finance app pulling real bank transactions through Plaid, and tutored 500+ students through the worst math of their lives.
+## things I've actually built
 
-I don't build toys. Everything on this profile is deployed, connected to real APIs, or running on actual hardware. If you ask me to walk through any of it, I can — down to the JWT middleware, the SQL schema, the systemd unit file.
+**[Maya](https://github.com/jashkaransingh/maya-finance-api)** — personal finance app backed by real bank data
 
-Currently grinding Computational Data Science and Computational Mathematics at Penn State (May 2027), and spending more time than I should admit on LeetCode hard problems.
+├─ Plaid API pulling and syncing live transactions across accounts  
+├─ Flask REST API with JWT auth on every protected route  
+├─ PostgreSQL schema built for fast spending queries by category and date  
+├─ Gemini-powered budget assistant that reasons over your actual transaction history  
+└─ deployed on AWS EC2 with gunicorn and nginx
+
+the hard part was transaction categorization. one merchant shows up under 14 different names depending on which bank processes it. wrote a fuzzy matching layer in the categorizer to handle it. the Plaid sandbox also lies to you about how production behaves so there were edge cases I only found after pointing it at real accounts.
 
 ---
 
-## what I've actually built
+**[RAG Document Q&A](https://github.com/jashkaransingh/rag-document-qa)** — not a wrapper, an actual retrieval system
 
-**[Maya](https://github.com/jashkaransingh/maya-finance-api)** — personal finance backend that earns its keep  
-├─ Plaid API pulling and categorizing real bank transactions in real time  
-├─ Flask REST API with JWT auth, PostgreSQL schema, and budget endpoints  
-├─ Gemini-powered AI assistant that actually reasons over your spending history  
-└─ deployed on AWS EC2, gunicorn + nginx, end-to-end encrypted
+├─ documents chunk via LangChain and get embedded with sentence-transformers  
+├─ stored in FAISS with max marginal relevance retrieval for diversity  
+├─ multi-turn memory layer so follow-up questions have context  
+└─ prompt injection guardrails built after testing showed you could manipulate answers with a crafted document
 
-**[RAG Document Q&A](https://github.com/jashkaransingh/rag-document-qa)** — not another LLM wrapper  
-├─ documents get chunked, embedded (sentence-transformers), and stored in FAISS  
-├─ max marginal relevance retrieval for diversity — not just top-k cosine similarity  
-├─ multi-turn memory so follow-up questions actually work  
-└─ prompt injection guardrails because people will try anything
+the hard part was naive top-k retrieval kept surfacing the same chunk repeatedly. switched to MMR and answer quality improved significantly. the guardrails came after I spent an afternoon trying to break my own system and succeeded faster than I expected.
 
-**[HomeHarmony](https://github.com/jashkaransingh/homeharmony)** — subleasing platform with real payment flows  
+---
+
+**[HomeHarmony](https://github.com/jashkaransingh/homeharmony)** — subleasing platform with real payment flows
+
 ├─ real-time buyer-seller chat via Supabase postgres_changes subscriptions  
-├─ Stripe Connect so landlords actually get paid to their bank accounts  
-├─ OCR lease verification through Google Cloud Vision before listings go live  
-└─ learned that payment edge cases multiply faster than you think
+├─ Stripe Connect so landlords get paid directly to their bank accounts  
+├─ Google Cloud Vision OCR verifying lease documents before listings go live  
+└─ React TypeScript frontend, filter by city, price, bedrooms, availability
 
-**[Handwriting Font Generator](https://github.com/jashkaransingh/handwriting-font-gen)** — trained a CNN on my own handwriting  
-├─ custom data pipeline with OpenCV cut training prep from 3 hours → 15 minutes  
-├─ data augmentation: rotations, morphological ops, synthetic noise  
-└─ renders any text in my handwriting style, end to end
-
-**[System Monitor](https://github.com/jashkaransingh/system-monitor)** — C++ daemon running on real hardware  
-├─ polls CPU, memory, disk every 10 seconds with sub-millisecond overhead  
-├─ inotify filesystem watcher — catches file creates, deletes, modifications live  
-├─ deployed on 5 embedded devices, caught 3 SD card failures before data loss  
-└─ runs on boot via systemd, auto-rotates logs at 10MB
+the hard part was Stripe Connect onboarding. partial failures, webhook retries, idempotency across edge cases nobody warns you about. spent two full days just on the payment flow before it felt solid.
 
 ---
 
-## what I know cold
+**[system-monitor](https://github.com/jashkaransingh/system-monitor)** — C++ daemon running on real hardware
 
-```
-Languages    Python · C++ · Swift · TypeScript · SQL · Java
-Backend      Flask · Node.js · REST APIs · WebSockets · JWT · PostgreSQL
-iOS          UIKit · SwiftUI · WidgetKit · APNs · Plaid SDK
-ML / AI      PyTorch · TensorFlow · LangChain · FAISS · OpenCV · scikit-learn
-Infra        AWS EC2 · Docker · Firebase · Supabase · Git
-```
+├─ polls CPU, memory, and disk every 10 seconds  
+├─ inotify filesystem watcher catching file creates, deletes, modifications  
+├─ running on 5 embedded devices via systemd since deployment  
+└─ caught 3 SD card failures before data loss happened
+
+the hard part was CPU overhead. first version ate 3 percent just from monitoring. rewrote the polling logic and got it under 0.1. the whole point of a monitor is that it doesn't slow down what it's watching.
 
 ---
 
 ## before all this
 
-**iOS Intern @ Rootchat, NYC** — shipped the whole onboarding from scratch. 14 screens in Swift/UIKit, haptic feedback on every tap, APNs notification system with retry logic on the backend. also deployed a marketing site in 72 hours that pulled 100+ unique visitors in the first 4 hours. they gave me real work on day one.
+**iOS Intern at Rootchat, NYC** — rebuilt their entire onboarding from scratch. 14 screens in Swift UIKit, haptic feedback on every interaction, APNs notification system with retry logic on the backend. shipped a marketing site in 72 hours that pulled 100 unique visitors in the first 4 hours. they gave me real production work from day one.
 
-**Math Tutor @ Penn State** — 500+ students over 18 months. Calculus I & II. one-on-ones, group exam sessions, 100+ students at a time. turns out explaining why limits exist to someone who hasn't slept is actually a skill.
+**Math Tutor at Penn State** — 500 students over 18 months. Calculus I and II. one on ones, group sessions of 100 people before exams. turns out being able to explain why something works matters more than being able to do it yourself.
+
+---
+
+## tech
+
+**daily**  
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+
+**backend and infra**  
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+
+**ML and AI**  
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge&logo=chainlink&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+
+---
+
+## a few things
+
+- tutored 500 students through calculus and never once said it was straightforward
+- the NYC internship story above is real and I will tell it in full if you ask
+- I write all my own SQL and I genuinely enjoy it
+- grinding hard leetcode problems because I want to pass any interview I walk into
 
 ---
 
@@ -81,5 +104,5 @@ Infra        AWS EC2 · Docker · Firebase · Supabase · Git
 ---
 
 <div align="center">
-<sub>State College, PA · open to SWE internships · May 2027</sub>
+<sub>State College PA · open to SWE internships · May 2027</sub>
 </div>
