@@ -2,7 +2,7 @@
 
 # Jashkaran Singh
 
-**CS @ Penn State · Backend · iOS · AI/ML**
+**Penn State · Comp Data Science + Comp Math · May 2027**
 
 [![Email](https://img.shields.io/badge/jaskaranjvs@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:jaskaranjvs@gmail.com)
 [![GitHub](https://img.shields.io/badge/jashkaransingh-181717?style=flat&logo=github&logoColor=white)](https://github.com/jashkaransingh)
@@ -11,9 +11,9 @@
 
 ---
 
-I build things end to end. Backend APIs, iOS apps, ML pipelines — whatever the problem needs. Currently a junior at Penn State (Computational Data Science + Computational Mathematics, Dec 2026), focused on closing the gap between "it works" and "it's production-ready."
+I build things end to end — backend APIs, iOS apps, ML pipelines. Wherever the problem is, that's where I work. Currently a sophomore at Penn State studying Computational Data Science and Computational Mathematics (graduating May 2027), with a focus on writing systems I can actually defend: clean architecture, real auth, real data.
 
-Previously iOS intern at **Rootchat** (NYC) — rebuilt their entire onboarding flow in Swift/UIKit, built the push notification system backend in Node.js, shipped a marketing site in 72 hours.
+Previously iOS intern at **Rootchat** (NYC) — rebuilt their entire onboarding in Swift/UIKit, built the push notification backend in Node.js (APNs + retry logic), and shipped a marketing site in 72 hours.
 
 ---
 
@@ -21,11 +21,11 @@ Previously iOS intern at **Rootchat** (NYC) — rebuilt their entire onboarding 
 
 | Project | What it does | Stack |
 |---|---|---|
-| [maya-finance-api](https://github.com/jashkaransingh/maya-finance-api) | Full-stack personal finance backend — Plaid integration, JWT auth, real-time transaction categorization | Python, Flask, PostgreSQL, Plaid |
-| [rag-document-qa](https://github.com/jashkaransingh/rag-document-qa) | End-to-end RAG pipeline with multi-turn memory, FAISS retrieval, and prompt injection guardrails | Python, LangChain, FAISS, Gemini |
-| [homeharmony](https://github.com/jashkaransingh/homeharmony) | Subleasing platform with real-time messaging, Stripe Connect payouts, and OCR lease verification | React, TypeScript, Supabase, Stripe |
-| [handwriting-font-gen](https://github.com/jashkaransingh/handwriting-font-gen) | CNN that renders any text in my handwriting — custom data pipeline cut prep time from 3hr to 15min | Python, PyTorch, OpenCV |
-| [system-monitor](https://github.com/jashkaransingh/system-monitor) | C++ background daemon that monitors CPU/memory/disk in real-time with inotify filesystem watching | C++, Linux, systemd |
+| [maya-finance-api](https://github.com/jashkaransingh/maya-finance-api) | Personal finance backend — Plaid bank integration, JWT auth, real-time transaction categorization, AI budget assistant | Python · Flask · PostgreSQL · Plaid |
+| [rag-document-qa](https://github.com/jashkaransingh/rag-document-qa) | End-to-end RAG pipeline — document ingestion, FAISS retrieval, multi-turn memory, prompt injection guardrails | Python · LangChain · FAISS · Gemini |
+| [homeharmony](https://github.com/jashkaransingh/homeharmony) | Subleasing platform — real-time WebSocket messaging, Stripe Connect payouts, OCR lease verification | React · TypeScript · Supabase · Stripe |
+| [handwriting-font-gen](https://github.com/jashkaransingh/handwriting-font-gen) | CNN pipeline that renders any text in your handwriting — custom augmentation cut prep time from 3hr → 15min | Python · PyTorch · OpenCV |
+| [system-monitor](https://github.com/jashkaransingh/system-monitor) | C++ daemon — real-time CPU/memory/disk monitoring, inotify filesystem watching, log rotation, systemd | C++ · Linux · systemd |
 
 ---
 
@@ -33,15 +33,13 @@ Previously iOS intern at **Rootchat** (NYC) — rebuilt their entire onboarding 
 
 ```
 Languages    Python · C++ · Swift · TypeScript · SQL · Java
-Backend      Flask · Node.js · REST APIs · WebSockets · JWT
+Backend      Flask · Node.js · REST APIs · WebSockets · JWT · PostgreSQL
 iOS          UIKit · SwiftUI · WidgetKit · APNs · Plaid SDK
-ML/AI        PyTorch · TensorFlow · LangChain · FAISS · OpenCV
-Data         PostgreSQL · Supabase · Firebase · AWS S3
+ML / AI      PyTorch · TensorFlow · LangChain · FAISS · OpenCV · scikit-learn
+Infra        AWS EC2 · Docker · Firebase · Supabase · Git
 ```
 
 ---
-
-## Stats
 
 <div align="center">
 
@@ -53,5 +51,5 @@ Data         PostgreSQL · Supabase · Firebase · AWS S3
 ---
 
 <div align="center">
-<sub>State College, PA · Open to SWE internships and new grad roles · Dec 2026</sub>
+<sub>State College, PA · Open to SWE internships and new grad roles · May 2027</sub>
 </div>
