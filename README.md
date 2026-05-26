@@ -2,34 +2,56 @@
 
 # Jashkaran Singh
 
-**Penn State · Comp Data Science + Comp Math · May 2027**
+**sophomore. builder. penn state → wherever the problem is.**
 
-[![Email](https://img.shields.io/badge/jaskaranjvs@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:jaskaranjvs@gmail.com)
 [![GitHub](https://img.shields.io/badge/jashkaransingh-181717?style=flat&logo=github&logoColor=white)](https://github.com/jashkaransingh)
 
 </div>
 
 ---
 
-I build things end to end — backend APIs, iOS apps, ML pipelines. Wherever the problem is, that's where I work. Currently a sophomore at Penn State studying Computational Data Science and Computational Mathematics (graduating May 2027), with a focus on writing systems I can actually defend: clean architecture, real auth, real data.
+I'm 19 and I've already shipped a production iOS notification system at a NYC startup, built a finance app pulling real bank transactions through Plaid, and tutored 500+ students through the worst math of their lives.
 
-Previously iOS intern at **Rootchat** (NYC) — rebuilt their entire onboarding in Swift/UIKit, built the push notification backend in Node.js (APNs + retry logic), and shipped a marketing site in 72 hours.
+I don't build toys. Everything on this profile is deployed, connected to real APIs, or running on actual hardware. If you ask me to walk through any of it, I can — down to the JWT middleware, the SQL schema, the systemd unit file.
 
----
-
-## Projects
-
-| Project | What it does | Stack |
-|---|---|---|
-| [maya-finance-api](https://github.com/jashkaransingh/maya-finance-api) | Personal finance backend — Plaid bank integration, JWT auth, real-time transaction categorization, AI budget assistant | Python · Flask · PostgreSQL · Plaid |
-| [rag-document-qa](https://github.com/jashkaransingh/rag-document-qa) | End-to-end RAG pipeline — document ingestion, FAISS retrieval, multi-turn memory, prompt injection guardrails | Python · LangChain · FAISS · Gemini |
-| [homeharmony](https://github.com/jashkaransingh/homeharmony) | Subleasing platform — real-time WebSocket messaging, Stripe Connect payouts, OCR lease verification | React · TypeScript · Supabase · Stripe |
-| [handwriting-font-gen](https://github.com/jashkaransingh/handwriting-font-gen) | CNN pipeline that renders any text in your handwriting — custom augmentation cut prep time from 3hr → 15min | Python · PyTorch · OpenCV |
-| [system-monitor](https://github.com/jashkaransingh/system-monitor) | C++ daemon — real-time CPU/memory/disk monitoring, inotify filesystem watching, log rotation, systemd | C++ · Linux · systemd |
+Currently grinding Computational Data Science and Computational Mathematics at Penn State (May 2027), and spending more time than I should admit on LeetCode hard problems.
 
 ---
 
-## Stack
+## what I've actually built
+
+**[Maya](https://github.com/jashkaransingh/maya-finance-api)** — personal finance backend that earns its keep  
+├─ Plaid API pulling and categorizing real bank transactions in real time  
+├─ Flask REST API with JWT auth, PostgreSQL schema, and budget endpoints  
+├─ Gemini-powered AI assistant that actually reasons over your spending history  
+└─ deployed on AWS EC2, gunicorn + nginx, end-to-end encrypted
+
+**[RAG Document Q&A](https://github.com/jashkaransingh/rag-document-qa)** — not another LLM wrapper  
+├─ documents get chunked, embedded (sentence-transformers), and stored in FAISS  
+├─ max marginal relevance retrieval for diversity — not just top-k cosine similarity  
+├─ multi-turn memory so follow-up questions actually work  
+└─ prompt injection guardrails because people will try anything
+
+**[HomeHarmony](https://github.com/jashkaransingh/homeharmony)** — subleasing platform with real payment flows  
+├─ real-time buyer-seller chat via Supabase postgres_changes subscriptions  
+├─ Stripe Connect so landlords actually get paid to their bank accounts  
+├─ OCR lease verification through Google Cloud Vision before listings go live  
+└─ learned that payment edge cases multiply faster than you think
+
+**[Handwriting Font Generator](https://github.com/jashkaransingh/handwriting-font-gen)** — trained a CNN on my own handwriting  
+├─ custom data pipeline with OpenCV cut training prep from 3 hours → 15 minutes  
+├─ data augmentation: rotations, morphological ops, synthetic noise  
+└─ renders any text in my handwriting style, end to end
+
+**[System Monitor](https://github.com/jashkaransingh/system-monitor)** — C++ daemon running on real hardware  
+├─ polls CPU, memory, disk every 10 seconds with sub-millisecond overhead  
+├─ inotify filesystem watcher — catches file creates, deletes, modifications live  
+├─ deployed on 5 embedded devices, caught 3 SD card failures before data loss  
+└─ runs on boot via systemd, auto-rotates logs at 10MB
+
+---
+
+## what I know cold
 
 ```
 Languages    Python · C++ · Swift · TypeScript · SQL · Java
@@ -38,6 +60,14 @@ iOS          UIKit · SwiftUI · WidgetKit · APNs · Plaid SDK
 ML / AI      PyTorch · TensorFlow · LangChain · FAISS · OpenCV · scikit-learn
 Infra        AWS EC2 · Docker · Firebase · Supabase · Git
 ```
+
+---
+
+## before all this
+
+**iOS Intern @ Rootchat, NYC** — shipped the whole onboarding from scratch. 14 screens in Swift/UIKit, haptic feedback on every tap, APNs notification system with retry logic on the backend. also deployed a marketing site in 72 hours that pulled 100+ unique visitors in the first 4 hours. they gave me real work on day one.
+
+**Math Tutor @ Penn State** — 500+ students over 18 months. Calculus I & II. one-on-ones, group exam sessions, 100+ students at a time. turns out explaining why limits exist to someone who hasn't slept is actually a skill.
 
 ---
 
@@ -51,5 +81,5 @@ Infra        AWS EC2 · Docker · Firebase · Supabase · Git
 ---
 
 <div align="center">
-<sub>State College, PA · Open to SWE internships and new grad roles · May 2027</sub>
+<sub>State College, PA · open to SWE internships · May 2027</sub>
 </div>
