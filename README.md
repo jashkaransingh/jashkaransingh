@@ -1,78 +1,57 @@
-# Jashkaran Singh  
-Building scalable iOS, full-stack, and AI solutions that bridge innovation with real-world impact
+<div align="center">
+
+# Jashkaran Singh
+
+**CS @ Penn State · Backend · iOS · AI/ML**
+
+[![Email](https://img.shields.io/badge/jaskaranjvs@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:jaskaranjvs@gmail.com)
+[![GitHub](https://img.shields.io/badge/jashkaransingh-181717?style=flat&logo=github&logoColor=white)](https://github.com/jashkaransingh)
+
+</div>
 
 ---
 
-## 👋 About Me
-I’m a Computational Data Science & Computational Mathematics student at Penn State (Graduating May 2026), specializing in **iOS development**, **full-stack applications**, and **AI/ML solutions**.  
-I enjoy solving complex problems end-to-end — from backend APIs to polished, intuitive interfaces — with an emphasis on performance, security, and user experience.
+I build things end to end. Backend APIs, iOS apps, ML pipelines — whatever the problem needs. Currently a junior at Penn State (Computational Data Science + Computational Mathematics, Dec 2026), focused on closing the gap between "it works" and "it's production-ready."
 
-📍 **Current Status:** Open to internships and future full-time opportunities in software engineering, data engineering, and AI.
+Previously iOS intern at **Rootchat** (NYC) — rebuilt their entire onboarding flow in Swift/UIKit, built the push notification system backend in Node.js, shipped a marketing site in 72 hours.
 
 ---
 
-**Previously @ Rootchat — iOS Developer Intern**  
-└── Developed and deployed `dadonthetree.com` in 72 hours for a live marketing campaign (100+ visitors in first 4 hours)  
-└── Redesigned onboarding/settings with a new 14-page Swift/UIKit interface and haptics  
-└── Shadowed CMO to align product design with marketing strategy  
+## Projects
+
+| Project | What it does | Stack |
+|---|---|---|
+| [maya-finance-api](https://github.com/jashkaransingh/maya-finance-api) | Full-stack personal finance backend — Plaid integration, JWT auth, real-time transaction categorization | Python, Flask, PostgreSQL, Plaid |
+| [rag-document-qa](https://github.com/jashkaransingh/rag-document-qa) | End-to-end RAG pipeline with multi-turn memory, FAISS retrieval, and prompt injection guardrails | Python, LangChain, FAISS, Gemini |
+| [homeharmony](https://github.com/jashkaransingh/homeharmony) | Subleasing platform with real-time messaging, Stripe Connect payouts, and OCR lease verification | React, TypeScript, Supabase, Stripe |
+| [handwriting-font-gen](https://github.com/jashkaransingh/handwriting-font-gen) | CNN that renders any text in my handwriting — custom data pipeline cut prep time from 3hr to 15min | Python, PyTorch, OpenCV |
+| [system-monitor](https://github.com/jashkaransingh/system-monitor) | C++ background daemon that monitors CPU/memory/disk in real-time with inotify filesystem watching | C++, Linux, systemd |
 
 ---
 
-## 💻 Tech Stack
+## Stack
 
-**Languages**  
-Python · Swift · Java · C++ · JavaScript/TypeScript · SQL · R · MATLAB  
-
-**iOS Development**  
-UIKit · SwiftUI · StoreKit · LocalAuthentication · Widgets  
-
-**Backend**  
-Flask · Node.js · Firebase · Supabase · MySQL  
-
-**AI / ML**  
-PyTorch · TensorFlow · scikit-learn · OpenCV · NumPy · pandas  
-
-**Other**  
-React · AWS · Git/GitHub · REST APIs · CI/CD
+```
+Languages    Python · C++ · Swift · TypeScript · SQL · Java
+Backend      Flask · Node.js · REST APIs · WebSockets · JWT
+iOS          UIKit · SwiftUI · WidgetKit · APNs · Plaid SDK
+ML/AI        PyTorch · TensorFlow · LangChain · FAISS · OpenCV
+Data         PostgreSQL · Supabase · Firebase · AWS S3
+```
 
 ---
 
-## 🔥 Featured Projects
+## Stats
 
-### 💳 Finance Tracker App  
-Full-stack personal finance iOS app with Swift (UIKit) frontend and Python (Flask) backend.  
-- Plaid API for real-time bank data import and categorization  
-- AI “Budget Assistant” powered by Gemini API  
-- Firebase Auth + JWT-secured backend endpoints  
-- Daily expense notifications + Lock/Home Screen widgets  
-**Tech Stack:** Swift (UIKit) · Flask · Plaid API · Firebase · Gemini API  
-**Links:** 🔗 [GitHub](https://github.com/jashkaransingh/FinanceApp) *(private)*  
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jashkaransingh&show_icons=true&theme=dark&hide_border=true&count_private=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=jashkaransingh&layout=compact&theme=dark&hide_border=true)
+
+</div>
 
 ---
 
-### ✍️ AI Handwriting Font Generator  
-Custom CNN to generate text in my personal handwriting style.  
-- OpenCV + NumPy preprocessing for handwriting dataset  
-- Matplotlib GUI for labeling characters  
-- Built with PyTorch & TensorFlow, deployed for live font rendering  
-**Tech Stack:** Python · PyTorch · TensorFlow · OpenCV · NumPy  
-
----
-
-### 🏠 HomeHarmony Platform  
-Full-stack property subleasing platform for secure, streamlined transactions.  
-- React.js + TypeScript + Supabase + Stripe Connect  
-- Interactive map search (Google Maps + Walkscore)  
-- OCR lease verification via Google Cloud Vision  
-- Real-time chat using Supabase subscriptions  
-**Tech Stack:** React.js · TypeScript · Supabase · Stripe API · Google Cloud Vision  
-
-
----
-
-## 📫 Let's Connect
-📧 **Email:** [jassing73@gmail.com](mailto:jassing73@gmail.com)  
-💼 **GitHub:** [github.com/jashkaransingh](https://github.com/jashkaransingh)  
-📍 **Location:** State College, PA
-
----
+<div align="center">
+<sub>State College, PA · Open to SWE internships and new grad roles · Dec 2026</sub>
+</div>
