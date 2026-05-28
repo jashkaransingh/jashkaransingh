@@ -2,7 +2,9 @@
 
 CS + Math @ Penn State. I build full stack apps from the iOS frontend all the way down to the AWS config. Real production stuff, not localhost demos.
 
-Currently shipping a finance app that pulls real bank data through Plaid and runs an AI budget assistant on top of your actual spending history. Also got into retrieval systems and now I can't stop tuning vector stores.
+most of what I build starts because something annoyed me. a banking app with a cluttered UI, a RAG system I couldn't trust, a subleasing process that was a mess to deal with. the problems I like are the ones where the hard part is hidden a layer below where everyone stops looking. the merchant string that comes back fourteen different ways. the retrieval step that quietly returns the same chunk three times. the Stripe webhook that fires twice and corrupts your state if you let it.
+
+Currently shipping a finance app that pulls real bank data through Plaid and runs an AI budget assistant on your actual spending. Also went deep on retrieval systems, built one, then built the framework to measure how good it actually is.
 
 ---
 
@@ -21,16 +23,14 @@ personal finance iOS app pulling real bank data, deployed end to end
 └─ the hard part wasn't auth or the API design. it was that the same Starbucks transaction comes back as Starbucks, SBUX, Starbucks #4421, STARBUCKS COFFEE, and a dozen other variants depending on which bank you connect. wrote a fuzzy matching layer that collapses them all into one merchant. also Plaid's sandbox lies about transaction shapes so production broke things sandbox never did
 ```
 
-### 🔍 [RAG Document Q&A](https://github.com/jashkaransingh/rag-document-qa)
-multi-turn retrieval system you can break and watch heal
+### 🔍 [RAG Document Q&A](https://github.com/jashkaransingh/rag-document-qa)  +  📊 [rag-eval](https://github.com/jashkaransingh/rag-eval)
+a multi-turn retrieval system, and the framework I built to prove it works
 
 ```
-├─ LangChain for chunking and pipeline glue
-├─ sentence-transformers for embeddings
-├─ FAISS vector store using maximum marginal relevance, not naive top-k
-├─ multi-turn memory so follow-up questions actually know what you asked before
-├─ prompt injection guardrails after I broke my own system in an afternoon
-└─ the hard part was retrieval quality. top-k kept returning the same chunk three times because everything in a doc clusters semantically close. switching to MMR forced diversity and answer quality jumped immediately. lesson that stuck with me, the model is rarely the bottleneck, the retrieval pipeline is
+├─ RAG side, LangChain chunking, sentence-transformers embeddings, FAISS with MMR instead of naive top-k, multi-turn memory, prompt injection guardrails
+├─ eval side, retrieval metrics like recall@k, mrr, and ndcg, plus LLM-as-judge scoring for faithfulness, answer relevance, and context precision
+├─ the eval framework plugs into any RAG system through one adapter interface, not just mine, and writes self-contained HTML reports
+└─ the through line, I built the RAG system, did not trust my own eyeballing of the answers, so I built the tool that puts numbers on it. top-k kept returning the same chunk three times until MMR fixed it, and I only knew the fix actually worked because the eval numbers moved
 ```
 
 ### 🏠 [HomeHarmony](https://github.com/jashkaransingh/homeharmony)
@@ -45,12 +45,12 @@ full stack subleasing platform with real money flowing through it
 ```
 
 ### ✍️ [Handwriting Font Generator](https://github.com/jashkaransingh/handwriting-font-gen)
-CNN that renders any text in my own handwriting
+CNN that renders any text in a learned handwriting style
 
 ```
-├─ Python + PyTorch + OpenCV
-├─ custom data pipeline with rotations, morphological ops, and synthetic noise augmentation
-├─ Matplotlib labeling GUI because relabeling 50k images by hand was destroying me
+├─ Python + PyTorch + OpenCV, 92% validation accuracy across 62 character classes
+├─ custom data pipeline with rotations, morphological ops, elastic distortion, and synthetic noise
+├─ Matplotlib labeling GUI because relabeling thousands of glyphs by hand was destroying me
 └─ training prep used to take 3 hours per run because OpenCV preprocessing was running serially. parallelized the pipeline and added smarter augmentation. dropped prep time to 15 minutes
 ```
 
@@ -59,10 +59,10 @@ CNN that renders any text in my own handwriting
 ## what I've actually done with this
 
 **iOS Developer Intern @ Rootchat** (NYC, summer 2024)
-rebuilt the entire user onboarding flow, 14 screens in Swift UIKit. wrote the APNs push notification system with retry logic on the Node.js backend. shipped a marketing site in 72 hours that pulled 100 unique visitors in the first 4 hours. sat in on investor meetings the founder pulled me into without warning.
+rebuilt the entire user onboarding from scratch, 14 screens in Swift UIKit, and added haptics across the whole app so every interaction had feedback. wrote the push notification system end to end, Swift on the front and Node.js on the back, with APNs retry logic for failed deliveries and payloads tuned for instant lock screen delivery. shipped a marketing site in 72 hours that pulled 100 unique visitors in the first 4 hours. the part that taught me the most was the room. the founder pulled me into investor meetings without warning and once handed me a live call with the tech team to take over and brief everyone the next day. small team, every decision mattered, and I got used to being thrown past my comfort zone until it stopped feeling like a stretch.
 
 **Math Tutor @ Penn State** (Aug 2024 → now)
-500+ students through Calc I and II. group exam reviews for 50+ at a time. teaching forces you to know what you actually understand vs what you think you do.
+500+ students over 18 months through Calc I and II, plus group exam reviews for 50+ at a time. breaking down limits and integrals for someone who is genuinely lost forces a kind of clarity you cannot fake, and it turned out to be the same muscle as a good code review, finding where someone's understanding actually breaks and meeting them there.
 
 ---
 
@@ -103,6 +103,7 @@ rebuilt the entire user onboarding flow, 14 screens in Swift UIKit. wrote the AP
 - think the hardest part of RAG is chunking, not the model
 - ship code that talks to real bank accounts through Plaid
 - once spent more time debugging Stripe Connect webhooks than writing the app they live in
+- build eval tools for my own systems because I do not trust what I have not measured
 - read API docs for fun and file issues against them for sport
 - 500+ Penn State students taught calc, somehow it made me better at code reviews
 - prefer 4 deep projects over 20 shallow ones
@@ -119,6 +120,6 @@ rebuilt the entire user onboarding flow, 14 screens in Swift UIKit. wrote the AP
 
 ## let's build something
 
-if you're working on iOS, backend, payment integrations, retrieval pipelines, or anything full stack that ships to actual users, reach out. always down to talk infra, Stripe edge cases, or why your Plaid sandbox is lying to you.
+if you're working on iOS, backend, payment integrations, retrieval pipelines, LLM evals, or anything full stack that ships to actual users, reach out. always down to talk infra, Stripe edge cases, or why your Plaid sandbox is lying to you.
 
-📫 [linkedin](https://linkedin.com/in/YOUR-HANDLE-HERE)
+📫 [linkedin](https://www.linkedin.com/in/jashkaran-singh/)
