@@ -4,7 +4,7 @@ CS + Math @ Penn State. I build full stack apps from the iOS frontend all the wa
 
 most of what I build starts because something annoyed me. a banking app with a cluttered UI, a RAG system I couldn't trust, a subleasing process that was a mess to deal with. the problems I like are the ones where the hard part is hidden a layer below where everyone stops looking. the merchant string that comes back fourteen different ways. the retrieval step that quietly returns the same chunk three times. the Stripe webhook that fires twice and corrupts your state if you let it.
 
-Currently shipping a finance app that pulls real bank data through Plaid and runs an AI budget assistant on your actual spending. Also went deep on retrieval systems, built one, then built the framework to measure how good it actually is.
+Currently shipping a finance app that pulls real bank data through Plaid and runs an AI budget assistant on your actual spending. Also went deep on retrieval systems, built one, built the framework to measure how good it is, then wrote the vector index underneath it from scratch in C++.
 
 ---
 
@@ -31,6 +31,16 @@ a multi-turn retrieval system, and the framework I built to prove it works
 ├─ eval side, retrieval metrics like recall@k, mrr, and ndcg, plus LLM-as-judge scoring for faithfulness, answer relevance, and context precision
 ├─ the eval framework plugs into any RAG system through one adapter interface, not just mine, and writes self-contained HTML reports
 └─ the through line, I built the RAG system, did not trust my own eyeballing of the answers, so I built the tool that puts numbers on it. top-k kept returning the same chunk three times until MMR fixed it, and I only knew the fix actually worked because the eval numbers moved
+```
+
+### ⚡ [hnsw-vector-search](https://github.com/jashkaransingh/hnsw-vector-search)
+the vector index that powers the two above, written from scratch in C++. the thing that sits under FAISS
+
+```
+├─ HNSW approximate nearest neighbor index, C++20, header-only, builds a navigable graph over the vectors so a query touches a tiny fraction of them
+├─ AVX2 and FMA SIMD distance kernels processing 8 floats per instruction, with a scalar fallback, since distance is the inner loop that runs millions of times per query
+├─ benchmarked against an exact brute-force baseline, 0.95 recall at 17x the throughput on 100k vectors of dim 128, 0.98 recall at 10x
+└─ the lesson, my early benchmark on pure random vectors gave mediocre recall and I went hunting for a bug that was not there. random noise in high dimensions is the one case no graph index can win because every point is nearly equidistant. real embeddings live on a low-dimensional manifold, and once the benchmark data looked like real embeddings the index did exactly what it should. this is the arc, I use a vector index in the RAG project, measure retrieval in the eval project, and here I built the index itself
 ```
 
 ### 🏠 [HomeHarmony](https://github.com/jashkaransingh/homeharmony)
@@ -104,9 +114,10 @@ rebuilt the entire user onboarding from scratch, 14 screens in Swift UIKit, and 
 - ship code that talks to real bank accounts through Plaid
 - once spent more time debugging Stripe Connect webhooks than writing the app they live in
 - build eval tools for my own systems because I do not trust what I have not measured
+- wrote the vector index that sits under my RAG stack from scratch in C++ instead of just importing FAISS
 - read API docs for fun and file issues against them for sport
 - 500+ Penn State students taught calc, somehow it made me better at code reviews
-- prefer 4 deep projects over 20 shallow ones
+- prefer a handful of deep projects over twenty shallow ones
 
 ---
 
