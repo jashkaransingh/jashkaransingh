@@ -30,6 +30,17 @@ The through line across these projects is measurement. Every number below was pr
 
 ---
 
+## Proof
+
+| Project | What's real | CI |
+|---|---|---|
+| [llama-serve](https://github.com/jashkaransingh/llama-serve) | 27.95 QPS sustained, 1.78× the blocking baseline at 85% lower p50 TTFT. | ![CI](https://github.com/jashkaransingh/llama-serve/actions/workflows/ci.yml/badge.svg) |
+| [multihop-qa](https://github.com/jashkaransingh/multihop-qa) | nDCG@10 0.7223 → 0.8529 on HotpotQA, significant at p = 0.0005. | ![CI](https://github.com/jashkaransingh/multihop-qa/actions/workflows/ci.yml/badge.svg) |
+| [memcask](https://github.com/jashkaransingh/memcask) | 572,096 ops/sec at 256 concurrent connections, zero errors. | ![CI](https://github.com/jashkaransingh/memcask/actions/workflows/ci.yml/badge.svg) |
+| [minidb](https://github.com/jashkaransingh/minidb) | ~180K durable writes/sec at 16 threads; 1,420 crash scenarios, zero losses. | ![CI](https://github.com/jashkaransingh/minidb/actions/workflows/ci.yml/badge.svg) |
+
+---
+
 ## Selected work
 
 ### [llama-serve](https://github.com/jashkaransingh/llama-serve) <sub>Python · llama.cpp · Metal · Prometheus</sub>
@@ -41,7 +52,7 @@ A local LLM inference server built around the part of model serving that sits be
 - Priority scheduling with pause-and-resume preemption and starvation protection for low-priority work.
 - Prometheus `/metrics` with exact quantiles, and a quantile is omitted rather than invented below its sample floor.
 
-**Measured** on an M1 Pro against a real model. Peak sustained **27.95 QPS** (Qwen2.5-0.5B Q4_K_M, 16 output tokens, 64 slots). Against the blocking baseline on an identical workload: **1.78× sustained throughput at 85% lower p50 TTFT**. Preemption cuts urgent-request TTFT from 15.81 s to **0.112 s** with no measurable slowdown for background generations. Prefix sharing skips **77% of prefill work** for an 85% drop in warm-wave TTFT, and a `temperature == 0` sampler fast path is **5.16× faster**, verified token-for-token against llama.cpp's own sampler. Step profiling locates the ceiling: decode is memory-bandwidth-bound below batch width 32 and compute-bound above it, so more scheduler work is not the remaining lever. 89 tests run against a deterministic mock backend with no model loaded.
+**Measured** on an M1 Pro against a real model. Peak sustained **27.95 QPS** (Qwen2.5-0.5B Q4_K_M, 16 output tokens, 64 slots). Against the blocking baseline on an identical workload: **1.78× sustained throughput at 85% lower p50 TTFT**. Preemption cuts urgent-request TTFT from 15.81 s to **0.112 s** with no measurable slowdown for background generations. Prefix sharing skips **77% of prefill work** for an 85% drop in warm-wave TTFT, and a `temperature == 0` sampler fast path is **5.16× faster**, verified token-for-token against llama.cpp's own sampler. Step profiling locates the ceiling: decode is memory-bandwidth-bound below batch width 32 and compute-bound above it, so more scheduler work is not the remaining lever. 93 tests run against a deterministic mock backend with no model loaded.
 
 ### [multihop-qa](https://github.com/jashkaransingh/multihop-qa) <sub>Python · FAISS · BM25 · cross-encoders · HotpotQA / MuSiQue</sub>
 
